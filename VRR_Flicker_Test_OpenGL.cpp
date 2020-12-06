@@ -70,13 +70,13 @@ int main()
 
     // Set the initial value for the frame time we want to achieve - this will vary over time to achieve the variable frame time
     // Start at 1/120th of a second for 120 Hz
-    float frame_time = 1.0 / 120.0;
+    float frame_time = 1.0f / 120.0f;
 
     // store the starting frame time so we can calculate the next frame time
     float prev_frame_time = frame_time;
 
     // set how much each frame time should change by between frames
-    float frame_time_delta = 1.0 / 1000.0;
+    float frame_time_delta = 1.0f / 1000.0f;
 
     // Keep repeating until the Windows is flagged as being closed by whatever event (pressing the X or keyboard input)
     // This is where the actual work is done
@@ -95,7 +95,7 @@ int main()
         // count down the frame time 
         frame_time = frame_time - time_delta;
 
-        // If the count down has finished then execute the frame buffer swap and reset the timer to a different value
+        // If the count down has finished then draw the gradient and execute the frame buffer swap and reset the timer to a different value
         if (frame_time <= 0.0) {
 
             // Get the width and height of the OpenGL viewport
